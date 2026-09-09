@@ -39,6 +39,7 @@
                 ./test
                 ./package.json
                 ./pnpm-lock.yaml
+                ./pnpm-workspace.yaml
                 ./tsconfig.json
                 ./build.js
                 ./vitest.config.ts
@@ -49,16 +50,16 @@
 
             pnpmDeps = pkgs.fetchPnpmDeps {
               inherit (finalAttrs) pname version src;
-              pnpm = pkgs.pnpm_9;
+              pnpm = pkgs.pnpm_10;
               fetcherVersion = 3;
-              hash = "sha256-9s2kdvd7svK4hofnD66HkDc86WTQeayfF5y7L2dmjNg=";
+              hash = "sha256-hET2NApPPSep8v59HcVGk3jfWLssaBnQisJF0Gx7ZE8=";
             };
 
             nativeBuildInputs = with pkgs; [
-              nodejs_20
+              nodejs_22
               npmHooks.npmInstallHook
               pnpmConfigHook
-              pnpm_9
+              pnpm_10
             ];
 
             buildPhase = ''
@@ -97,8 +98,8 @@
         {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
-              nodejs_20
-              pnpm_9
+              nodejs_22
+              pnpm_10
             ];
 
             shellHook = ''
